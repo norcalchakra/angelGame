@@ -1,7 +1,7 @@
 // Initialize Supabase client
-const supabaseUrl = 'YOUR_SUPABASE_URL';
-const supabaseKey = 'YOUR_SUPABASE_ANON_KEY';
-const supabase = supabase.createClient(supabaseUrl, supabaseKey);
+const supabaseUrl = 'https://ksrhvjtxttelzpwfzvih.supabase.co';
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imtzcmh2anR4dHRlbHpwd2Z6dmloIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDUxNjA0MTIsImV4cCI6MjA2MDczNjQxMn0.dXVw_ZuRXBLvxDfpZGJOAWPop4EXmizOCM_MNn4WwD4';
+const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
 
 // Database functions
 const db = {
