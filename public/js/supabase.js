@@ -8,7 +8,7 @@ const db = {
   // User functions
   async createUser(email, password, username) {
     try {
-      const { user, error } = await supabase.auth.signUp({
+      const { data, error } = await supabase.auth.signUp({
         email,
         password,
         options: {
@@ -19,6 +19,11 @@ const db = {
       });
       
       if (error) throw error;
+      
+      // Extract user from the response
+      const user = data.user;
+      
+      if (!user) throw new Error('User creation failed');
       
       // Create user profile in profiles table
       const { error: profileError } = await supabase
@@ -38,12 +43,17 @@ const db = {
   
   async loginUser(email, password) {
     try {
-      const { user, error } = await supabase.auth.signInWithPassword({
+      const { data, error } = await supabase.auth.signInWithPassword({
         email,
         password
       });
       
       if (error) throw error;
+      
+      // Extract user from the response
+      const user = data.user;
+      
+      if (!user) throw new Error('Login failed');
       
       return { user, error: null };
     } catch (error) {
