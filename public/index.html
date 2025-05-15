@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Social Puzzle Game</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Social Puzzle Game</h1>
+    </header>
+    
+    <div class="auth-container">
+      <div id="auth-status">
+        <button id="login-btn">Login</button>
+        <button id="signup-btn">Sign Up</button>
+      </div>
+      <div id="user-info" style="display: none;">
+        <span id="username"></span>
+        <button id="logout-btn">Logout</button>
+      </div>
+    </div>
+    
+    <div class="game-options">
+      <div class="upload-section">
+        <h2>Upload Your Image</h2>
+        <form id="upload-form">
+          <input type="file" id="image-upload" accept="image/*">
+          <button type="submit">Upload</button>
+        </form>
+      </div>
+      
+      <div class="connect-section">
+        <h2>Play a Friend's Puzzle</h2>
+        <div class="input-group">
+          <input type="text" id="friend-id" placeholder="Enter Friend's ID">
+          <button id="connect-btn">Connect</button>
+        </div>
+      </div>
+    </div>
+    
+    <div id="game-container"></div>
+    
+    <div id="share-container" style="display: none;">
+      <h2>Share Your Puzzle</h2>
+      <p>Your Puzzle ID: <span id="puzzle-id"></span></p>
+      <button id="copy-btn">Copy ID</button>
+    </div>
+  </div>
+  
+  <!-- Auth modals -->
+  <div id="login-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Login</h2>
+      <form id="login-form">
+        <div class="form-group">
+          <label for="login-email">Email:</label>
+          <input type="email" id="login-email" required>
+        </div>
+        <div class="form-group">
+          <label for="login-password">Password:</label>
+          <input type="password" id="login-password" required>
+        </div>
+        <button type="submit">Login</button>
+      </form>
+    </div>
+  </div>
+  
+  <div id="signup-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Sign Up</h2>
+      <form id="signup-form">
+        <div class="form-group">
+          <label for="signup-email">Email:</label>
+          <input type="email" id="signup-email" required>
+        </div>
+        <div class="form-group">
+          <label for="signup-password">Password:</label>
+          <input type="password" id="signup-password" required>
+        </div>
+        <div class="form-group">
+          <label for="signup-username">Username:</label>
+          <input type="text" id="signup-username" required>
+        </div>
+        <button type="submit">Sign Up</button>
+      </form>
+    </div>
+  </div>
+  
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/phaser@3.60.0/dist/phaser.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.21.0/dist/umd/supabase.min.js"></script>
+  <script src="js/supabase.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/puzzle.js"></script>
+  <script src="js/game.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
